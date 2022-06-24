@@ -2,6 +2,20 @@
 
 {% block body %} 
     {% for team in teams %}
-         
+    <form action="/teams" method="post">
+        <div class="mb-3">
+            
+            {% for team in teams %}
+            <div class="form-check">
+                <input type="radio" id="{{team.name}}" name="team" value="{{team.name}}">
+                <label for ="{{team.name}}"> {{team.name}}</label><br>
+            </div>
+            {% endfor %}
+                   
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-dark"> View </button>
+        </div>
+    </form>
     {% endfor %}
 {% endblock %}
