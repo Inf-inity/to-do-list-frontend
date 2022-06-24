@@ -1,5 +1,11 @@
 {% extends "layout.html" %} 
 
 {% block body %} 
-    
+    {% for member_name, member_id in memebers %}
+        <div>
+            <div>
+                <p>{{member_name}} #{{ member_id}} </p>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
