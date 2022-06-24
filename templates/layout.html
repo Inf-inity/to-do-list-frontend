@@ -32,7 +32,10 @@
                             <a class="nav-link" href="/profile">profile</a>
                         </li>
                     </ul>                        
-                        
+                    
+                    {% if user_name %}
+                    <div class="justify-content-end"> {{user_name}}</div>
+                    {% endif %}
                 </nav>
             </div>
         </nav>
