@@ -35,6 +35,8 @@
                     
                     {% if user_name %}
                     <div class="justify-content-end"> {{user_name}}</div>
+                    {% else %} 
+                    <a class="nav-link justify-content-end" href="/make_user">new user</a>
                     {% endif %}
                 </nav>
             </div>

@@ -7,7 +7,7 @@
     <div class="accordion-item bg-dark">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <h1>{{ task_name }}</h1>
+          task_name
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -18,5 +18,6 @@
       </div>
     </div>
     {% endfor %}
+    <button class="btn btn-dark"><a href="/new_task"> + </a></button>
   </div> 
 {% endblock %}
