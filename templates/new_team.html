@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %} 
+
+    <div>
+        <h1>New Task</h1>
+    </div>
+
+    <form method="post" action="/new_team">
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text input-bl" id="team_name">Name</span>
+            <input type="text" class="form-control input-bl" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="team_members">Member IDs</span>
+            <input type="text" class="form-control input-bl" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <button type="submit" class="btn btn-dark">Create Task</button>
+    </form>
+{% endblock %}

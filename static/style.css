@@ -3,3 +3,8 @@ body {
     color: #b9b9b9;
     font-family: 'Courier New', Courier, monospace, bold;
 }
+
+.input-bl {
+    background-color: #212529;
+    color: #b9b9b9;
+}
