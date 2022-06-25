@@ -28,3 +28,8 @@ span {
     border-color: transparent;
     color: #b9b9b9;
 }
+
+.nav-link .btn{
+    color: #b9b9b9;
+    text-decoration: none;
+}
