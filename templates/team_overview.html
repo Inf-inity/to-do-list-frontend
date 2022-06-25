@@ -4,10 +4,14 @@
     <div>
         <h1>Teams</h1>
     </div>
-    {% for team_name,team_id in Teams %}
-        <div>
-            <p>{{team_name}} #{{team_id}} </p>
-        </div>
-    {% endfor %}    
-
+    <table>
+        <tbody>
+        {% for team_name,team_id in Teams %}
+            <tr>
+                <td>{{team_name}} </td>
+                <td>#{{team_id}} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
