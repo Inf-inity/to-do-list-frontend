@@ -9,22 +9,22 @@
     <form method="post" action="/new_task">
         <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="task_name">Name</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input name="title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="task_beschreibung">Describtion</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input name="desc" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="task_deadline">Deadline</span>
-            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input name="time" type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
 
           <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="task_priority">Priority</span>
-            <input type="number" min="1" max="3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input name="prio" type="number" min="1" max="3" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
           </div>
 
           <button type="submit" class="btn btn-dark">Create Task</button>
