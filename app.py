@@ -24,8 +24,8 @@ CACHE = {"id": 1, "user": None, "teams": []}
 
 @app.route("/")
 def index():
-    user = get_data("/tasks/user/{}".format(CACHE["id"]))
-    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"), tasks=user["AssignedTasks"])
+    tasks = get_data("/tasks/user/{}".format(CACHE["id"]))
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"), tasks=tasks)
 
 
 @app.route("/login")
