@@ -77,7 +77,8 @@ def added_task():
             "Title": f"{request.form['title']}",
             "Description": f"{request.form['desc']}",
             "Priority": int(request.form['prio']),
-            "Deadline": f"{request.form['time']}T00:00:00Z"
+            "Deadline": f"{request.form['time']}T00:00:00Z",
+            "Assignees": [CACHE.get('id')],
         }))
     return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
