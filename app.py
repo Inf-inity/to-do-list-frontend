@@ -31,8 +31,10 @@ def new_user():
     pass
 
 
-@app.route("/new_user_added")
+@app.route("/new_user_added", methods=["POST"])
 def new_user_success():
+    if request.method == "POST":
+        data = post_data("/new_user", json.dumps({"name": f"{request.form['user']}"}))
     return render_template("task.html", user_name=CACHE.get("user"))
 
 
@@ -43,9 +45,24 @@ def invite():
 
 @app.route("/invite_success", methods=["GET", "POST"])
 def invite_success():
-    if request.method == "POST":
-        data = post_data("/new_user", json.dumps({"name": f"{request.form['user']}"}))
     return render_template("task.html", user_name=CACHE.get("user"))
+
+
+@app.route("/new")
+def new():
+    return render_template("new_task.html")
+
+
+@app.route("/new_task", methods=["GET", "POST"])
+def added_task():
+    if request.method == "POST":
+        print("ok")
+    return render_template("task.html", user_name=CACHE.get("user"))
+
+
+@app.route("/profile")
+def profile():
+    pass
 
 
 if __name__ == "__main__":
