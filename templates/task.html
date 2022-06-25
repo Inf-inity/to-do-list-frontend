@@ -16,7 +16,7 @@
           <p>Deadline:  {{ task["Deadline"] }}</p>
 
           <form method="post" action="/done">
-            <input type="hidden" name="status" value="{{ task.Id }}">
+            <input type="hidden" name="status" value="{{ task["Id"] }}">
             <button type="submit" class="btn btn-dark">Done</button>
           </form>
         </div>
