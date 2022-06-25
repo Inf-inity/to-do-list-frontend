@@ -15,7 +15,7 @@
           <h3><p style="color:#b9b9b9;"></p>{{ task["Description"] }}</p></h3>
           <h3>Deadline:  {{ task["Deadline"] }}</h3>
 
-          <form method="post">
+          <form method="post" action="/done">
             <input type="hidden" name="status" value="{{ task.Id }}">
             <button type="submit" class="btn btn-dark">Done</button>
           </form>
