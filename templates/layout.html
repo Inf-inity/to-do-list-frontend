@@ -35,6 +35,11 @@
                     
                     {% if user_name %}
                     <div class="justify-content-end"> {{ user_name }}</div>
+                    {% else if team_id %}
+                    <div class="justify-content-end">
+                        <a class="nav-link" href="/team_members">members</a>
+                    </div> 
+
                     {% else %}
                     <div class="justify-content-end">
                         <a class="nav-link" href="/make_user">new user</a>

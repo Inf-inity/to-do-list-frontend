@@ -1,7 +1,7 @@
 {% extends "layout.html" %} 
 
 {% block body %} 
-<div class="card w-75">
+<div class="card w-75 text-bg-dark mb-3">
   <div class="card-body">
     <h5 class="card-title">INVITE PAGE</h5>
     <form action="/invite_success" method="POST">
@@ -13,7 +13,7 @@
         <span class="input-group-text" id="user_id">USER ID</span>
         <input id="user" name="user" type="text" class="form-control input-bl" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
-      <button type="submit" value="submit" class="btn btn-primary">Confirm</button>
+      <button type="submit" value="submit" class="btn btn-dark">Confirm</button>
     </form>
   </div>
 </div>
