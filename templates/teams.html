@@ -1,7 +1,7 @@
 {% extends "layout.html" %} 
 
 {% block body %} 
-    {% for team in teams %}
+    
     <form action="/teams" method="post">
         <div class="mb-3">
             
@@ -17,5 +17,5 @@
             <button type="submit" class="btn btn-dark"> View </button>
         </div>
     </form>
-    {% endfor %}
+    
 {% endblock %}
