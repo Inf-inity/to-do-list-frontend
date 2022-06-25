@@ -18,12 +18,25 @@ def post_data(endpoint: str, query: str = None):
 
 app = Flask(__name__)
 
-CACHE = {"id": 1, "user": "Test"}
+CACHE = {"id": 0, "user": None, "teams": []}
 
 
 @app.route("/")
 def index():
-    return render_template("task.html", user_name=CACHE.get("user"))
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/logged_in", methods=["POST"])
+def logged_in():
+    if request.method == "POST":
+        data = get_data(f"/users/by-name/{request.form['name']}")
+        print(data)
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
 
 @app.route("/new_user")
@@ -50,7 +63,7 @@ def invite_success():
 
 @app.route("/new")
 def new():
-    return render_template("new_task.html")
+    return render_template("new_task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
 
 @app.route("/new_task", methods=["GET", "POST"])
@@ -63,7 +76,7 @@ def added_task():
             "Priority": int(request.form['prio']),
             "Deadline": f"{request.form['time']}T00:00:00Z"
         }))
-    return render_template("task.html", user_name=CACHE.get("user"))
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
 
 @app.route("/profile")
@@ -73,8 +86,9 @@ def profile():
 
 @app.route("/all_teams")
 def get_teams():
-    data = get_data()
-    return render_template("teams.html")
+    data = get_data(f"/users/{CACHE.get('id')}/")
+    print(data)
+    return render_template("teams.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
 
 if __name__ == "__main__":
