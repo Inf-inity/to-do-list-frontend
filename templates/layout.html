@@ -28,15 +28,17 @@
                             <a class="nav-link"  href="/all_teams">teams</a>
                         </li>
                         
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/profile">profile</a>
                         </li>
                     </ul>                        
                     
                     {% if user_name %}
-                    <div class="justify-content-end"> {{user_name}}</div>
-                    {% else %} 
-                    <a class="nav-link justify-content-end" href="/make_user">new user</a>
+                    <div class="justify-content-end"> {{ user_name }}</div>
+                    {% else %}
+                    <div class="justify-content-end">
+                        <a class="nav-link" href="/make_user">new user</a>
+                    </div>
                     {% endif %}
                 </nav>
             </div>
