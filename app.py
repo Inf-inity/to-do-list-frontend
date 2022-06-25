@@ -1,3 +1,4 @@
+from asyncio import tasks
 import json
 import requests
 
@@ -18,12 +19,13 @@ def post_data(endpoint: str, query: str = None):
 
 app = Flask(__name__)
 
-CACHE = {"id": 0, "user": None, "teams": []}
+CACHE = {"id": 1, "user": None, "teams": []}
 
 
 @app.route("/")
 def index():
-    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
+    user = get_data("/tasks/user/{}".format(CACHE["id"]))
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"), tasks=user["AssignedTasks"])
 
 
 @app.route("/login")
