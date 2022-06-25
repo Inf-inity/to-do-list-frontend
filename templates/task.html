@@ -5,12 +5,12 @@
 <div class="accordion" id="accordionExample">
   {% for task in tasks %}
     <div class="accordion-item bg-dark">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button bg-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <h2 class="accordion-header" id="heading{{ task['ID'] }}">
+        <button class="accordion-button bg-dark " type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ task['ID'] }}" aria-expanded="true" aria-controls="collapse{{ task['ID'] }}">
           <h1><p style="color:#b9b9b9;">{{ task["Title"] }}</p></h1>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div id="collapse{{ task['ID'] }}" class="accordion-collapse collapse" aria-labelledby="heading{{ task['ID'] }}" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <h3><p style="color:#b9b9b9;"></p>{{ task["Description"] }}</p></h3>
           <h3>Deadline:  {{ task["Deadline"] }}</h3>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    {% endfor %}
+  {% endfor %}
     <button class="btn btn-dark"><a href="/new"> + </a></button>
   </div> 
 {% endblock %} 
