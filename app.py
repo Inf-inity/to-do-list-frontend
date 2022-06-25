@@ -1,4 +1,3 @@
-from asyncio import tasks
 import json
 import requests
 
@@ -8,7 +7,7 @@ from flask import Flask, request, render_template
 def get_data(endpoint: str, query: dict = None):
     res = requests.get(f"https://codenight.yannik-dittmar.de{endpoint}", params=query)
 
-    return res
+    return json.loads(res.text)
 
 
 def post_data(endpoint: str, query: str = None):
@@ -37,10 +36,8 @@ def login():
 def logged_in():
     if request.method == "POST":
         data = get_data(f"/users/by-name/{request.form['name']}/")
-        data = json.loads(data.text)
         if not data.get("Name"):
             return render_template("login.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
-        print(data)
         CACHE["user"], CACHE["id"], CACHE["teams"] = data.get("Name"), data.get("ID"), data.get("Teams")
     return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
