@@ -6,7 +6,7 @@ from flask import Flask, request, render_template
 
 def get_data(endpoint: str, query: dict = None):
     res = requests.get(f"https://codenight.yannik-dittmar.de{endpoint}", params=query)
-    print(res.text)
+
     return json.loads(res.text)
 
 
@@ -91,8 +91,16 @@ def profile():
 @app.route("/all_teams")
 def get_teams():
     data = get_data(f"/users/{CACHE.get('id')}/")
-    print(data)
+
     return render_template("teams.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
+
+
+@app.route("/done", methods=["POST"])
+def done():
+    if request.method == "POST":
+        data = post_data("/tasks/update/", json.dumps({"ID": request.form["status"], "State": 2}))
+
+    return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"))
 
 
 if __name__ == "__main__":
