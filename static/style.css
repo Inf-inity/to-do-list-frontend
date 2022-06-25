@@ -18,3 +18,13 @@ card {
     background-color: #212529;
     color:#b9b9b9;
 }
+
+span {
+    background-color: #212529;
+    color: #b9b9b9;
+}
+
+.bg-dark {
+    border-color: transparent;
+    color: #b9b9b9;
+}
