@@ -6,7 +6,7 @@ from flask import Flask, request, render_template
 
 def get_data(endpoint: str, query: dict = None):
     res = requests.get(f"https://codenight.yannik-dittmar.de{endpoint}", params=query)
-
+    print(res.text)
     return json.loads(res.text)
 
 
@@ -23,7 +23,7 @@ CACHE = {"id": 1, "user": None, "teams": []}
 
 @app.route("/")
 def index():
-    tasks = get_data("/tasks/user/{}".format(CACHE["id"]))
+    tasks = get_data("/tasks/by-user/{}/".format(CACHE["id"]))
     return render_template("task.html", user_name=CACHE.get("user"), team_id=CACHE.get("teams"), tasks=tasks)
 
 
