@@ -1,0 +1,13 @@
+{% extends "layout.html" %} 
+
+{% block body %}
+    <form method="post" action="/logged_in">
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text input.bl" name="name" id="name">Name</span>
+            <input type="text" class="form-control input-bl" name="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+      
+
+        <button type="submit" class="btn btn-dark">Log In</button>
+    </form>
+{% endblock %}
